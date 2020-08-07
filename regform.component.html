@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+-->
+<title>Registration - VLink Care+</title>
+</head>
+
+<body>
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">VLink Care+ Registration</h2>
+                    <p>Please enter the following details.</p>
+                    <p class="required">*required</p>
+                    <!--method="POST" onSubmit="alert('Thank you for the submission!');"-->
+                    <form id="regForm" action="/action_page.php" onSubmit="alert('Thank you for the submission!');">
+                        <div class="tab"> 
+                            <p style="color: black;" class="cred">Credentials:</p>                  
+                            <div class="input-group">
+                                <p><input class="input--style-1" type="text" placeholder="FIRST NAME*" name="firstname" oninput="this.className=''" required></p>
+                            </div>
+                            <div class="input-group">
+                                <p><input class="input--style-1" type="text" placeholder="MIDDLE NAME" name="middlename" oninput="this.className=''"></p>
+                            </div>
+                            <div class="input-group">
+                                <p><input class="input--style-1" type="text" placeholder="LAST NAME*" name="lastname" oninput="this.className=''" required></p>
+                            </div>
+                            <div class="input-group">
+                                <p><input class="input--style-1" type="email" placeholder="Email*" name="email" oninput="this.className=''" required></p>
+                            </div>
+                            <div class="input-group">
+                                <p><input class="input--style-1" type="password" placeholder="Password*" oninput="this.className=''" name="pwd" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;"  required></p>
+                            </div>
+                            <div class="input-group">
+                                <p><input class="input--style-1" type="password" placeholder="Confirm password*" oninput="this.className=''" name="confirmpwd" pattern="^\S{6,}$" oninput="check(this)" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Password Not Matching!':'');" required></p>
+                            </div>
+                        </div>
+
+                        <div class="tab">
+                            <p style="color: black;"class="contactdetails">Contact Details:</p>
+                            <div class="input-group">
+                                <input class="input--style-1" type="text" placeholder="Street Address (Ex:1234 Main Street)" name="streetaddress">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-1" type="text" placeholder="City" name="City">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-1" type="text" placeholder="State (Ex:CT)" name="State">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-1" type="text" placeholder="Apartment/Suite/Other" name="apt">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-1" type="number" placeholder="Zip Code" name="zipcode" min="1">
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1" type="tel" placeholder="Phone No." name="phone">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab">
+                            <p style="color: black;"class="personal info">Other Personal Details:</p>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">Birthdate*:</p>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1" type="date" placeholder="Birthdate*" name="birthday" required>
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1" type="number" placeholder="Height (in)" name="height" min="1">
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <input class="input--style-1" type="number" placeholder="Weight (lbs)" name="weight" min="1">
+                                    </div>
+                                </div>
+                            </div>                    
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="gender">
+                                        <option disabled="disabled" selected="selected">Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" placeholder="if Other:" name="othergender">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab">
+                            <p style="color: black;"class="hra">Health Risk Assesement:</p>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">Are you an alcohol consumer?</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">Are you a tobacco user?</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">I engage in moderate physical activity outside of work at least 5 days a week:</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">I eat at least three servings of fruits and vegetables every day:</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">I eat at fast food restaurants less than two times a week:</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">I avoid eating foods high in fat such as whole milk, fried foods and fatty meats:</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">Please rate your weekly activity rate on a scale of 1-5 (1-no activity, 5-very active):</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">How often are you outside on a scale of 1-5 per week?(1-none, 5-very much):</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <p style="font-family:Arial; font-size:14px;color:#6E6C6C;">How would you describe your eating habits on a scale of 1-5? (1-very unhealthy, 5-very healthy):</p>
+                            <div class="input-group">
+                                <div class="rs-select2 js-select-simple select--no-search">
+                                    <select name="question1">
+                                        <option disabled="disabled" selected="selected">-</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="overflow:auto;">
+                            <div style="float:left;">
+                                <button class="btn2 btn--radius2 btn--blue" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                                <button class="btn2 btn--radius2 btn--blue" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                            </div>
+                            <div style="text-align:right;margin-top:5px;">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+                        </div>
+                        <div class="p-t-20">
+                            <div style="float:left;">
+                            <button class="btn btn--radius btn--green" id="submitbutton" type="submit">Submit</button>
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="regform.component.js"></script>
+</html>
